@@ -90,7 +90,7 @@ public class FedulovDeadLockResolve {
                 if (firstAndSecondsStick.isTaken() == false) {
                     firstAndSecondsStick.setTaken(true);
 
-                    firstAndSecondsStick.setOwner("firstAndSecondsStick taken by fird Philosoph");
+                    firstAndSecondsStick.setOwner("firstAndSecondsStick taken by first Philosoph");
                     System.out.println(firstAndSecondsStick.getName() + " - " + firstAndSecondsStick.getOwner());
                     firstAndSecondsStick.setTaken(false);
                 }
@@ -100,7 +100,7 @@ public class FedulovDeadLockResolve {
                 if (firstAndFithsStick.isTaken() == false) {
                     firstAndFithsStick.setTaken(true);
 
-                    firstAndFithsStick.setOwner("firstAndFithsStick taken by fird Philosoph");
+                    firstAndFithsStick.setOwner("firstAndFithsStick taken by first Philosoph");
                     System.out.println(firstAndSecondsStick.getName() + " - " + firstAndSecondsStick.getOwner());
                     firstAndFithsStick.setTaken(false);
 
@@ -120,7 +120,7 @@ public class FedulovDeadLockResolve {
                 if (firstAndSecondsStick.isTaken() == false) {
                     firstAndSecondsStick.setTaken(true);
 
-                    firstAndSecondsStick.setOwner("firstAndSecondsStick taken by fird Philosoph");
+                    firstAndSecondsStick.setOwner("firstAndSecondsStick taken by second Philosoph");
                     System.out.println(firstAndSecondsStick.getName() + " - " + firstAndSecondsStick.getOwner());
                     firstAndSecondsStick.setTaken(false);
                 }
@@ -130,7 +130,7 @@ public class FedulovDeadLockResolve {
                 if (firdsAndSecondsStick.isTaken() == false) {
                     firdsAndSecondsStick.setTaken(true);
 
-                    firdsAndSecondsStick.setOwner("firdsAndSecondsStick taken by fird Philosoph");
+                    firdsAndSecondsStick.setOwner("firdsAndSecondsStick taken by second Philosoph");
                     System.out.println(firdsAndSecondsStick.getName() + " - " + firdsAndSecondsStick.getOwner());
                     firdsAndSecondsStick.setTaken(false);
 
@@ -182,7 +182,7 @@ public class FedulovDeadLockResolve {
                 if (forthsAndFirdsStick.isTaken() == false) {
                     forthsAndFirdsStick.setTaken(true);
 
-                    forthsAndFirdsStick.setOwner("forthsAndFirdsStick taken by fird Philosoph");
+                    forthsAndFirdsStick.setOwner("forthsAndFirdsStick taken by forth Philosoph");
                     System.out.println(forthsAndFirdsStick.getName() + " - " + forthsAndFirdsStick.getOwner());
                     forthsAndFirdsStick.setTaken(false);
                 }
@@ -192,7 +192,7 @@ public class FedulovDeadLockResolve {
                 if (fithsAndForthsStick.isTaken() == false) {
                     fithsAndForthsStick.setTaken(true);
 
-                    fithsAndForthsStick.setOwner("fithsAndForthsStick taken by fird Philosoph");
+                    fithsAndForthsStick.setOwner("fithsAndForthsStick taken by forth Philosoph");
                     System.out.println(fithsAndForthsStick.getName() + " - " + fithsAndForthsStick.getOwner());
                     fithsAndForthsStick.setTaken(false);
                 }
@@ -211,7 +211,7 @@ public class FedulovDeadLockResolve {
                 if (fithsAndForthsStick.isTaken() == false) {
                     fithsAndForthsStick.setTaken(true);
 
-                    fithsAndForthsStick.setOwner("fithsAndForthsStick taken by fird Philosoph");
+                    fithsAndForthsStick.setOwner("fithsAndForthsStick taken by fifth Philosoph");
                     System.out.println(fithsAndForthsStick.getName() + " - " + fithsAndForthsStick.getOwner());
                     fithsAndForthsStick.setTaken(false);
                 }
@@ -221,7 +221,7 @@ public class FedulovDeadLockResolve {
                 if (firstAndFithsStick.isTaken() == false) {
                     firstAndFithsStick.setTaken(true);
 
-                    firstAndFithsStick.setOwner("firstAndFithsStick taken by fird Philosoph");
+                    firstAndFithsStick.setOwner("firstAndFithsStick taken by fifth Philosoph");
                     System.out.println(firstAndSecondsStick.getName() + " - " + firstAndSecondsStick.getOwner());
                     firstAndFithsStick.setTaken(false);
                 }
