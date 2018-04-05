@@ -52,6 +52,8 @@ public class FedulovDeadLockResolve {
     public static final Thread forthStarter = new Thread(forthPhilosoph);
     public static final Thread fithStarter = new Thread(fithPhilosoph);
 
+    public static final int random = (int) (Math.random() + 1) * 1_00;
+
     public static void main(String[] args) {
         fivePhilosophes[0] = firstStarter;
         fivePhilosophes[1] = secondStarter;
@@ -74,7 +76,6 @@ public class FedulovDeadLockResolve {
     // services
     private static void firstPhilosopherTakeHisSticks() {
 
-        int random = (int) (Math.random() + 1) * 1_00;
         int localCounter = 0;
         while (localCounter <= random) {
             localCounter++;
@@ -104,7 +105,6 @@ public class FedulovDeadLockResolve {
     }
 
     private static void secondPhilosopherTakeHisSticks() {
-        int random = (int) (Math.random() + 1) * 1_00;
         int localCounter = 0;
         while (localCounter <= random) {
             localCounter++;
@@ -134,7 +134,6 @@ public class FedulovDeadLockResolve {
     }
 
     private static void firdPhilosopherTakeHisSticks() {
-        int random = (int) (Math.random() + 1) * 1_00;
         int localCounter = 0;
         while (localCounter <= random) {
             localCounter++;
@@ -165,7 +164,6 @@ public class FedulovDeadLockResolve {
     }
 
     private static void forthPhilosopherTakeHisSticks() {
-        int random = (int) (Math.random() + 1) * 1_00;
         int localCounter = 0;
         while (localCounter <= random) {
             localCounter++;
@@ -195,7 +193,6 @@ public class FedulovDeadLockResolve {
     }
 
     private static void fifthPhilosopherTakeHisSticks() {
-        int random = (int) (Math.random() + 1) * 1_00;
         int localCounter = 0;
         while (localCounter <= random) {
             localCounter++;
