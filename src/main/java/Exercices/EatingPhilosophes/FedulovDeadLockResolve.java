@@ -65,15 +65,8 @@ public class FedulovDeadLockResolve {
 
     public static void runTheGame() {
         long counter = 0;
-        while (counter < 1_000) {
             for (int i = 0; i < fivePhilosophes.length; i++) {
                 fivePhilosophes[i].start();
-            }
-//            System.out.println(firstAndSecondsStick);
-//            System.out.println(firstAndFithsStick);
-//            System.out.println(firdsAndSecondsStick);
-//            System.out.println(forthsAndFirdsStick);
-//            System.out.println(fithsAndForthsStick);
         }
     }
 
@@ -81,7 +74,7 @@ public class FedulovDeadLockResolve {
     // services
     private static void firstPhilosopherTakeHisSticks() {
 
-        int random = (int) (Math.random() + 1) * 1_000;
+        int random = (int) (Math.random() + 1) * 1_00;
         int localCounter = 0;
         while (localCounter <= random) {
             localCounter++;
@@ -90,8 +83,8 @@ public class FedulovDeadLockResolve {
                 if (firstAndSecondsStick.isTaken() == false) {
                     firstAndSecondsStick.setTaken(true);
 
-                    firstAndSecondsStick.setOwner("firstAndSecondsStick taken by first Philosoph");
-                    System.out.println(firstAndSecondsStick.getName() + " - " + firstAndSecondsStick.getOwner());
+                    firstAndSecondsStick.setOwner("firstAndSecondsStick taken by first Philosopher");
+                    allSticksStates();
                     firstAndSecondsStick.setTaken(false);
                 }
             }
@@ -100,8 +93,8 @@ public class FedulovDeadLockResolve {
                 if (firstAndFithsStick.isTaken() == false) {
                     firstAndFithsStick.setTaken(true);
 
-                    firstAndFithsStick.setOwner("firstAndFithsStick taken by first Philosoph");
-                    System.out.println(firstAndSecondsStick.getName() + " - " + firstAndSecondsStick.getOwner());
+                    firstAndFithsStick.setOwner("firstAndFithsStick taken by first Philosopher");
+                    allSticksStates();
                     firstAndFithsStick.setTaken(false);
 
                 }
@@ -111,7 +104,7 @@ public class FedulovDeadLockResolve {
     }
 
     private static void secondPhilosopherTakeHisSticks() {
-        int random = (int) (Math.random() + 1) * 1_000;
+        int random = (int) (Math.random() + 1) * 1_00;
         int localCounter = 0;
         while (localCounter <= random) {
             localCounter++;
@@ -120,8 +113,8 @@ public class FedulovDeadLockResolve {
                 if (firstAndSecondsStick.isTaken() == false) {
                     firstAndSecondsStick.setTaken(true);
 
-                    firstAndSecondsStick.setOwner("firstAndSecondsStick taken by second Philosoph");
-                    System.out.println(firstAndSecondsStick.getName() + " - " + firstAndSecondsStick.getOwner());
+                    firstAndSecondsStick.setOwner("firstAndSecondsStick taken by second Philosopher");
+                    allSticksStates();
                     firstAndSecondsStick.setTaken(false);
                 }
             }
@@ -130,8 +123,8 @@ public class FedulovDeadLockResolve {
                 if (firdsAndSecondsStick.isTaken() == false) {
                     firdsAndSecondsStick.setTaken(true);
 
-                    firdsAndSecondsStick.setOwner("firdsAndSecondsStick taken by second Philosoph");
-                    System.out.println(firdsAndSecondsStick.getName() + " - " + firdsAndSecondsStick.getOwner());
+                    firdsAndSecondsStick.setOwner("firdsAndSecondsStick taken by second Philosopher");
+                    allSticksStates();
                     firdsAndSecondsStick.setTaken(false);
 
                 }
@@ -141,7 +134,7 @@ public class FedulovDeadLockResolve {
     }
 
     private static void firdPhilosopherTakeHisSticks() {
-        int random = (int) (Math.random() + 1) * 1_000;
+        int random = (int) (Math.random() + 1) * 1_00;
         int localCounter = 0;
         while (localCounter <= random) {
             localCounter++;
@@ -151,8 +144,8 @@ public class FedulovDeadLockResolve {
                 if (firdsAndSecondsStick.isTaken() == false) {
                     firdsAndSecondsStick.setTaken(true);
 
-                    firdsAndSecondsStick.setOwner("firdsAndSecondsStick taken by fird Philosoph");
-                    System.out.println(firdsAndSecondsStick.getName() + " - " + firdsAndSecondsStick.getOwner());
+                    firdsAndSecondsStick.setOwner("firdsAndSecondsStick taken by fird Philosopher");
+                    allSticksStates();
                     firdsAndSecondsStick.setTaken(false);
                 }
             }
@@ -161,8 +154,8 @@ public class FedulovDeadLockResolve {
                 if (forthsAndFirdsStick.isTaken() == false) {
                     forthsAndFirdsStick.setTaken(true);
 
-                    forthsAndFirdsStick.setOwner("forthsAndFirdsStick taken by fird Philosoph");
-                    System.out.println(forthsAndFirdsStick.getName() + " - " + forthsAndFirdsStick.getOwner());
+                    forthsAndFirdsStick.setOwner("forthsAndFirdsStick taken by fird Philosopher");
+                    allSticksStates();
                     forthsAndFirdsStick.setTaken(false);
 
                 }
@@ -172,7 +165,7 @@ public class FedulovDeadLockResolve {
     }
 
     private static void forthPhilosopherTakeHisSticks() {
-        int random = (int) (Math.random() + 1) * 1_000;
+        int random = (int) (Math.random() + 1) * 1_00;
         int localCounter = 0;
         while (localCounter <= random) {
             localCounter++;
@@ -182,8 +175,8 @@ public class FedulovDeadLockResolve {
                 if (forthsAndFirdsStick.isTaken() == false) {
                     forthsAndFirdsStick.setTaken(true);
 
-                    forthsAndFirdsStick.setOwner("forthsAndFirdsStick taken by forth Philosoph");
-                    System.out.println(forthsAndFirdsStick.getName() + " - " + forthsAndFirdsStick.getOwner());
+                    forthsAndFirdsStick.setOwner("forthsAndFirdsStick taken by forth Philosopher");
+                    allSticksStates();
                     forthsAndFirdsStick.setTaken(false);
                 }
             }
@@ -192,17 +185,17 @@ public class FedulovDeadLockResolve {
                 if (fithsAndForthsStick.isTaken() == false) {
                     fithsAndForthsStick.setTaken(true);
 
-                    fithsAndForthsStick.setOwner("fithsAndForthsStick taken by forth Philosoph");
-                    System.out.println(fithsAndForthsStick.getName() + " - " + fithsAndForthsStick.getOwner());
+                    fithsAndForthsStick.setOwner("fithsAndForthsStick taken by forth Philosopher");
+                    allSticksStates();
                     fithsAndForthsStick.setTaken(false);
                 }
             }
-            System.out.println("Second Philosopher done !");
+            System.out.println("Forth Philosopher done !");
         }
     }
 
     private static void fifthPhilosopherTakeHisSticks() {
-        int random = (int) (Math.random() + 1) * 1_000;
+        int random = (int) (Math.random() + 1) * 1_00;
         int localCounter = 0;
         while (localCounter <= random) {
             localCounter++;
@@ -211,8 +204,8 @@ public class FedulovDeadLockResolve {
                 if (fithsAndForthsStick.isTaken() == false) {
                     fithsAndForthsStick.setTaken(true);
 
-                    fithsAndForthsStick.setOwner("fithsAndForthsStick taken by fifth Philosoph");
-                    System.out.println(fithsAndForthsStick.getName() + " - " + fithsAndForthsStick.getOwner());
+                    fithsAndForthsStick.setOwner("fifthsAndForthsStick taken by fifth Philosopher");
+                    allSticksStates();
                     fithsAndForthsStick.setTaken(false);
                 }
             }
@@ -221,8 +214,8 @@ public class FedulovDeadLockResolve {
                 if (firstAndFithsStick.isTaken() == false) {
                     firstAndFithsStick.setTaken(true);
 
-                    firstAndFithsStick.setOwner("firstAndFithsStick taken by fifth Philosoph");
-                    System.out.println(firstAndSecondsStick.getName() + " - " + firstAndSecondsStick.getOwner());
+                    firstAndFithsStick.setOwner("firstAndFithsStick taken by fifth Philosopher");
+                    allSticksStates();
                     firstAndFithsStick.setTaken(false);
                 }
             }
@@ -263,5 +256,16 @@ public class FedulovDeadLockResolve {
 
         String owner = "noBodysStick";
         boolean taken = false;
+    }
+
+    public static synchronized void allSticksStates() {
+        System.out.println(firstAndSecondsStick.getName() + ", " + firstAndSecondsStick.getOwner() + ", " +
+                           firstAndSecondsStick.isTaken() + "\n" + firdsAndSecondsStick.getName() + ", " +
+                           firdsAndSecondsStick.getOwner() + ", " + firdsAndSecondsStick.isTaken() + "\n" +
+                           forthsAndFirdsStick.getName() + ", " + forthsAndFirdsStick.getOwner() +
+                           forthsAndFirdsStick.isTaken() + "\n" + fithsAndForthsStick.getName() + ", " +
+                           fithsAndForthsStick.getOwner() + ", " + fithsAndForthsStick.isTaken() + "\n" +
+                           firstAndFithsStick.getName() + ", " + firstAndFithsStick.getOwner() + ", " +
+                           firstAndFithsStick.isTaken() + "\n\n------------------------------------------\n");
     }
 }
