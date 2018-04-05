@@ -110,6 +110,7 @@ public class FedulovDeadLockResolve {
 
                         allSticksStates();
                         eatingSomeWhile();
+                        System.out.print("First Philosopher.\n\n");
 
                         firstAndSecondsStick.setOwner("NoBodysStick");
                         firstAndSecondsStick.setTaken(false);
@@ -148,6 +149,7 @@ public class FedulovDeadLockResolve {
 
                     allSticksStates();
                     eatingSomeWhile();
+                    System.out.print("Second Philosopher.\n\n");
 
                     firstAndSecondsStick.setOwner("NoBodysStick");
                     firstAndSecondsStick.setTaken(false);
@@ -185,6 +187,7 @@ public class FedulovDeadLockResolve {
 
                     allSticksStates();
                     eatingSomeWhile();
+                    System.out.print("Third Philosopher.\n\n");
 
                     forthsAndFirdsStick.setOwner("NoBodysStick");
                     forthsAndFirdsStick.setTaken(false);
@@ -222,6 +225,7 @@ public class FedulovDeadLockResolve {
 
                     allSticksStates();
                     eatingSomeWhile();
+                    System.out.print("Forth Philosopher.\n\n");
 
                     forthsAndFirdsStick.setOwner("NoBodysStick");
                     forthsAndFirdsStick.setTaken(false);
@@ -258,6 +262,7 @@ public class FedulovDeadLockResolve {
 
                     allSticksStates();
                     eatingSomeWhile();
+                    System.out.print("Fifth Philosopher.\n\n");
 
                     firstAndFithsStick.setOwner("NoBodysStick");
                     firstAndFithsStick.setTaken(false);
@@ -315,6 +320,7 @@ public class FedulovDeadLockResolve {
     }
 
     private static void eatingSomeWhile() throws InterruptedException {
+        System.out.print("\nEating ");
         Thread.currentThread().sleep(500);
     }
 
