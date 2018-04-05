@@ -86,6 +86,7 @@ public class FedulovDeadLockResolve {
 
                     firstAndSecondsStick.setOwner("firstAndSecondsStick taken by first Philosopher");
                     allSticksStates();
+                    firstAndSecondsStick.setOwner("NoBodysStick");
                     firstAndSecondsStick.setTaken(false);
                 }
             }
@@ -96,11 +97,12 @@ public class FedulovDeadLockResolve {
 
                     firstAndFithsStick.setOwner("firstAndFithsStick taken by first Philosopher");
                     allSticksStates();
+                    firstAndFithsStick.setOwner("NoBodysStick");
                     firstAndFithsStick.setTaken(false);
 
                 }
             }
-            System.out.println("First Philosopher done !");
+            System.out.println("\n\nFirst Philosopher done !\n\n");
         }
     }
 
@@ -115,6 +117,7 @@ public class FedulovDeadLockResolve {
 
                     firstAndSecondsStick.setOwner("firstAndSecondsStick taken by second Philosopher");
                     allSticksStates();
+                    firstAndSecondsStick.setOwner("NoBodysStick");
                     firstAndSecondsStick.setTaken(false);
                 }
             }
@@ -125,11 +128,12 @@ public class FedulovDeadLockResolve {
 
                     firdsAndSecondsStick.setOwner("firdsAndSecondsStick taken by second Philosopher");
                     allSticksStates();
+                    firdsAndSecondsStick.setOwner("NoBodysStick");
                     firdsAndSecondsStick.setTaken(false);
 
                 }
             }
-            System.out.println("Second Philosopher done !");
+            System.out.println("\n\nSecond Philosopher done !\n\n");
         }
     }
 
@@ -145,6 +149,7 @@ public class FedulovDeadLockResolve {
 
                     firdsAndSecondsStick.setOwner("firdsAndSecondsStick taken by fird Philosopher");
                     allSticksStates();
+                    firstAndSecondsStick.setOwner("NoBodysStick");
                     firdsAndSecondsStick.setTaken(false);
                 }
             }
@@ -155,11 +160,12 @@ public class FedulovDeadLockResolve {
 
                     forthsAndFirdsStick.setOwner("forthsAndFirdsStick taken by fird Philosopher");
                     allSticksStates();
+                    forthsAndFirdsStick.setOwner("NoBodysStick");
                     forthsAndFirdsStick.setTaken(false);
 
                 }
             }
-            System.out.println("Fird Philosopher done !");
+            System.out.println("\n\nFird Philosopher done !\n\n");
         }
     }
 
@@ -175,6 +181,7 @@ public class FedulovDeadLockResolve {
 
                     forthsAndFirdsStick.setOwner("forthsAndFirdsStick taken by forth Philosopher");
                     allSticksStates();
+                    forthsAndFirdsStick.setOwner("NoBodysStick");
                     forthsAndFirdsStick.setTaken(false);
                 }
             }
@@ -185,10 +192,11 @@ public class FedulovDeadLockResolve {
 
                     fithsAndForthsStick.setOwner("fithsAndForthsStick taken by forth Philosopher");
                     allSticksStates();
+                    fithsAndForthsStick.setOwner("NoBodysStick");
                     fithsAndForthsStick.setTaken(false);
                 }
             }
-            System.out.println("Forth Philosopher done !");
+            System.out.println("\n\nForth Philosopher done !\n\n");
         }
     }
 
@@ -203,6 +211,7 @@ public class FedulovDeadLockResolve {
 
                     fithsAndForthsStick.setOwner("fifthsAndForthsStick taken by fifth Philosopher");
                     allSticksStates();
+                    fithsAndForthsStick.setOwner("NoBodysStick");
                     fithsAndForthsStick.setTaken(false);
                 }
             }
@@ -213,10 +222,13 @@ public class FedulovDeadLockResolve {
 
                     firstAndFithsStick.setOwner("firstAndFithsStick taken by fifth Philosopher");
                     allSticksStates();
+                    firstAndFithsStick.setOwner("NoBodysStick");
                     firstAndFithsStick.setTaken(false);
                 }
             }
-            System.out.println("Fifth Philosopher done !");
+            System.out.println("\n\nFifth Philosopher done !"
+
+                              );
         }
     }
 
