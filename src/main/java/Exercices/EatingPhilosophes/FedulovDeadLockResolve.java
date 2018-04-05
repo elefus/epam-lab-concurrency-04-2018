@@ -3,7 +3,6 @@ package Exercices.EatingPhilosophes;
 public class FedulovDeadLockResolve {
 
     // not shared resource
-    String spagetti = "NoOnesSpagetti";
     public static Thread[] fivePhilosophes = new Thread[5];
 
     // shared resorces
@@ -72,7 +71,7 @@ public class FedulovDeadLockResolve {
     public static final Thread forthStarter = new Thread(forthPhilosoph);
     public static final Thread fithStarter = new Thread(fithPhilosoph);
 
-    public static final int random = (int) (Math.random() + 1) * 1_00;
+    public static final int countOfAttemptsToEat = (int) (Math.random() + 1) * 10;
 
     public static void main(String[] args) {
         fivePhilosophes[0] = firstStarter;
@@ -87,8 +86,8 @@ public class FedulovDeadLockResolve {
 
     public static void runTheGame() {
         long counter = 0;
-            for (int i = 0; i < fivePhilosophes.length; i++) {
-                fivePhilosophes[i].start();
+        for (int i = 0; i < fivePhilosophes.length; i++) {
+            fivePhilosophes[i].start();
         }
     }
 
@@ -97,34 +96,36 @@ public class FedulovDeadLockResolve {
     private static void firstPhilosopherTakeHisSticks() throws InterruptedException {
 
         int localCounter = 0;
-        while (localCounter <= random) {
+        while (localCounter <= countOfAttemptsToEat) {
             localCounter++;
             Object locker = new Object();
-            synchronized (locker) {
-                if (firstAndSecondsStick.isTaken() == false && fithsAndForthsStick.isTaken() == false) {
+            if (firstAndSecondsStick.isTaken() == false && fithsAndForthsStick.isTaken() == false) {
+                synchronized (locker) {
+                    {
+                        firstAndSecondsStick.setTaken(true);
+                        firstAndSecondsStick.setOwner("firstAndSecondsStick taken by second Philosopher");
 
-                    firstAndSecondsStick.setTaken(true);
-                    firstAndSecondsStick.setOwner("firstAndSecondsStick taken by second Philosopher");
+                        firstAndFithsStick.setTaken(true);
+                        firstAndFithsStick.setOwner("firstAndFithsStick taken by second Philosopher");
 
-                    firstAndFithsStick.setTaken(true);
-                    firstAndFithsStick.setOwner("firstAndFithsStick taken by second Philosopher");
+                        allSticksStates();
+                        eatingSomeWhile();
 
-                    allSticksStates();
-                    eatingSomeWhile();
+                        firstAndSecondsStick.setOwner("NoBodysStick");
+                        firstAndSecondsStick.setTaken(false);
+                        fithsAndForthsStick.setOwner("NoBodysStick");
+                        fithsAndForthsStick.setTaken(false);
 
-                    firstAndSecondsStick.setOwner("NoBodysStick");
-                    firstAndSecondsStick.setTaken(false);
-                    fithsAndForthsStick.setOwner("NoBodysStick");
-                    fithsAndForthsStick.setTaken(false);
-
-                } else {
-                    if (firstAndSecondsStick.isTaken()) {
-                        firstAndSecondsStick.wait(10);
-                    } else if (fithsAndForthsStick.isTaken()) {
-                        fithsAndForthsStick.wait(10);
-                    } else if (firstAndSecondsStick.isTaken() && fithsAndForthsStick.isTaken()) {
-                        firdsAndSecondsStick.wait(10);
                     }
+                }
+            } else {
+                if (firstAndSecondsStick.isTaken()) {
+                    firstAndSecondsStick.wait(10);
+                }
+                if (fithsAndForthsStick.isTaken()) {
+                    fithsAndForthsStick.wait(10);
+                } else if (firstAndSecondsStick.isTaken() && fithsAndForthsStick.isTaken()) {
+                    firdsAndSecondsStick.wait(10);
                 }
             }
         }
@@ -133,11 +134,11 @@ public class FedulovDeadLockResolve {
 
     private static void secondPhilosopherTakeHisSticks() throws InterruptedException {
         int localCounter = 0;
-        while (localCounter <= random) {
+        while (localCounter <= countOfAttemptsToEat) {
             localCounter++;
             Object locker = new Object();
-            synchronized (locker) {
-                if (firstAndSecondsStick.isTaken() == false && firdsAndSecondsStick.isTaken() == false) {
+            if (firstAndSecondsStick.isTaken() == false && firdsAndSecondsStick.isTaken() == false) {
+                synchronized (locker) {
 
                     firstAndSecondsStick.setTaken(true);
                     firstAndSecondsStick.setOwner("firstAndSecondsStick taken by second Philosopher");
@@ -153,14 +154,14 @@ public class FedulovDeadLockResolve {
                     firdsAndSecondsStick.setOwner("NoBodysStick");
                     firdsAndSecondsStick.setTaken(false);
 
-                } else {
-                    if (firstAndSecondsStick.isTaken()) {
-                        firstAndSecondsStick.wait(10);
-                    } else if (firdsAndSecondsStick.isTaken()) {
-                        fithsAndForthsStick.wait(10);
-                    } else if (firstAndSecondsStick.isTaken() && firdsAndSecondsStick.isTaken()) {
-                        firdsAndSecondsStick.wait(10);
-                    }
+                }
+            } else {
+                if (firstAndSecondsStick.isTaken()) {
+                    firstAndSecondsStick.wait(10);
+                } else if (firdsAndSecondsStick.isTaken()) {
+                    fithsAndForthsStick.wait(10);
+                } else if (firstAndSecondsStick.isTaken() && firdsAndSecondsStick.isTaken()) {
+                    firdsAndSecondsStick.wait(10);
                 }
             }
         }
@@ -169,12 +170,12 @@ public class FedulovDeadLockResolve {
 
     private static void firdPhilosopherTakeHisSticks() throws InterruptedException {
         int localCounter = 0;
-        while (localCounter <= random) {
+        while (localCounter <= countOfAttemptsToEat) {
             localCounter++;
 
             Object locker = new Object();
-            synchronized (locker) {
-                if (forthsAndFirdsStick.isTaken() == false && firdsAndSecondsStick.isTaken() == false) {
+            if (forthsAndFirdsStick.isTaken() == false && firdsAndSecondsStick.isTaken() == false) {
+                synchronized (locker) {
 
                     forthsAndFirdsStick.setTaken(true);
                     forthsAndFirdsStick.setOwner("firstAndSecondsStick taken by second Philosopher");
@@ -190,14 +191,14 @@ public class FedulovDeadLockResolve {
                     firdsAndSecondsStick.setOwner("NoBodysStick");
                     firdsAndSecondsStick.setTaken(false);
 
-                } else {
-                    if (forthsAndFirdsStick.isTaken()) {
-                        forthsAndFirdsStick.wait(10);
-                    } else if (firdsAndSecondsStick.isTaken()) {
-                        fithsAndForthsStick.wait(10);
-                    } else if (forthsAndFirdsStick.isTaken() && firdsAndSecondsStick.isTaken()) {
-                        firdsAndSecondsStick.wait(10);
-                    }
+                }
+            } else {
+                if (forthsAndFirdsStick.isTaken()) {
+                    forthsAndFirdsStick.wait(10);
+                } else if (firdsAndSecondsStick.isTaken()) {
+                    fithsAndForthsStick.wait(10);
+                } else if (forthsAndFirdsStick.isTaken() && firdsAndSecondsStick.isTaken()) {
+                    firdsAndSecondsStick.wait(10);
                 }
             }
         }
@@ -206,12 +207,12 @@ public class FedulovDeadLockResolve {
 
     private static void forthPhilosopherTakeHisSticks() throws InterruptedException {
         int localCounter = 0;
-        while (localCounter <= random) {
+        while (localCounter <= countOfAttemptsToEat) {
             localCounter++;
 
             Object locker = new Object();
-            synchronized (locker) {
-                if (forthsAndFirdsStick.isTaken() == false && fithsAndForthsStick.isTaken() == false) {
+            if (forthsAndFirdsStick.isTaken() == false && fithsAndForthsStick.isTaken() == false) {
+                synchronized (locker) {
 
                     forthsAndFirdsStick.setTaken(true);
                     forthsAndFirdsStick.setOwner("firstAndSecondsStick taken by second Philosopher");
@@ -227,14 +228,14 @@ public class FedulovDeadLockResolve {
                     fithsAndForthsStick.setOwner("NoBodysStick");
                     fithsAndForthsStick.setTaken(false);
 
-                } else {
-                    if (forthsAndFirdsStick.isTaken()) {
-                        forthsAndFirdsStick.wait(10);
-                    } else if (fithsAndForthsStick.isTaken()) {
-                        fithsAndForthsStick.wait(10);
-                    } else if (forthsAndFirdsStick.isTaken() && fithsAndForthsStick.isTaken()) {
-                        fithsAndForthsStick.wait(10);
-                    }
+                }
+            } else {
+                if (forthsAndFirdsStick.isTaken()) {
+                    forthsAndFirdsStick.wait(10);
+                } else if (fithsAndForthsStick.isTaken()) {
+                    fithsAndForthsStick.wait(10);
+                } else if (forthsAndFirdsStick.isTaken() && fithsAndForthsStick.isTaken()) {
+                    fithsAndForthsStick.wait(10);
                 }
             }
         }
@@ -243,11 +244,11 @@ public class FedulovDeadLockResolve {
 
     private static void fifthPhilosopherTakeHisSticks() throws InterruptedException {
         int localCounter = 0;
-        while (localCounter <= random) {
+        while (localCounter <= countOfAttemptsToEat) {
             localCounter++;
             Object locker = new Object();
-            synchronized (locker) {
-                if (firstAndFithsStick.isTaken() == false && fithsAndForthsStick.isTaken() == false) {
+            if (firstAndFithsStick.isTaken() == false && fithsAndForthsStick.isTaken() == false) {
+                synchronized (locker) {
 
                     firstAndFithsStick.setTaken(true);
                     firstAndFithsStick.setOwner("firstAndSecondsStick taken by second Philosopher");
@@ -262,15 +263,14 @@ public class FedulovDeadLockResolve {
                     firstAndFithsStick.setTaken(false);
                     fithsAndForthsStick.setOwner("NoBodysStick");
                     fithsAndForthsStick.setTaken(false);
-
-                } else {
-                    if (firstAndFithsStick.isTaken()) {
-                        firstAndFithsStick.wait(10);
-                    } else if (fithsAndForthsStick.isTaken()) {
-                        fithsAndForthsStick.wait(10);
-                    } else if (firstAndFithsStick.isTaken() && fithsAndForthsStick.isTaken()) {
-                        fithsAndForthsStick.wait(10);
-                    }
+                }
+            } else {
+                if (firstAndFithsStick.isTaken()) {
+                    firstAndFithsStick.wait(10);
+                } else if (fithsAndForthsStick.isTaken()) {
+                    fithsAndForthsStick.wait(10);
+                } else if (firstAndFithsStick.isTaken() && fithsAndForthsStick.isTaken()) {
+                    fithsAndForthsStick.wait(10);
                 }
             }
         }
@@ -282,6 +282,7 @@ public class FedulovDeadLockResolve {
         public Stick(String name) {
             this.name = name;
         }
+
         String name = "noBodysStick";
 
         String getName() {
