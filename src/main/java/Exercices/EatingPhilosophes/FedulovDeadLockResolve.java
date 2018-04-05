@@ -255,7 +255,7 @@ public class FedulovDeadLockResolve {
         boolean taken = false;
     }
 
-    public static synchronized void allSticksStates() {
+    public static void allSticksStates() {
         System.out.println(firstAndSecondsStick.getName() + ", " + firstAndSecondsStick.getOwner() + ", " +
                            firstAndSecondsStick.isTaken() + "\n" + firdsAndSecondsStick.getName() + ", " +
                            firdsAndSecondsStick.getOwner() + ", " + firdsAndSecondsStick.isTaken() + "\n" +
