@@ -7,24 +7,37 @@ import java.util.concurrent.TimeUnit;
 
 public class Exercise2Fedulov {
     static class Storage {
-        String  sharedString = null;
-        boolean writing      = false;
+        private volatile Object locker = new Object();
 
-        public boolean isReading() {
+        public int getCounReaders() {
+            synchronized (locker) {
+                return counReaders;
+            }
+        }
+
+        public synchronized void setCounReaders(int counReaders) {
+            this.counReaders++;
+        }
+
+        volatile int     counReaders = 0;
+        volatile String  sharedString;
+        volatile boolean writing     = false;
+
+        public synchronized boolean isReading() {
             return reading;
         }
 
-        public void setReading(boolean reading) {
+        public synchronized void setReading(boolean reading) {
             this.reading = reading;
         }
 
-        boolean reading = false;
+        volatile boolean reading = false;
 
-        public boolean isWriting() {
+        public synchronized boolean isWriting() {
             return writing;
         }
 
-        public void setWriting(boolean writing) {
+        public synchronized void setWriting(boolean writing) {
             this.writing = writing;
         }
 
@@ -32,11 +45,11 @@ public class Exercise2Fedulov {
             this.sharedString = sharedString;
         }
 
-        public String getSharedString() {
+        public synchronized String getSharedString() {
             return sharedString;
         }
 
-        public void setSharedString(String sharedString) {
+        public synchronized void setSharedString(String sharedString) {
             this.sharedString = sharedString;
         }
     }
