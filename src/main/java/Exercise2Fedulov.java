@@ -40,6 +40,8 @@ public class Exercise2Fedulov {
         Reader reader = new Reader(storage);
         threads[0] = new Thread(writer);
         threads[1] = new Thread(reader);
+        threads[0].setPriority(Thread.MAX_PRIORITY);
+        threads[1].setPriority(Thread.MIN_PRIORITY);
 
         for (int i = 0; i < threads.length; i++) {
             threads[i].start();
@@ -48,8 +50,8 @@ public class Exercise2Fedulov {
 }
 
 class Writer implements Runnable {
-    ReentrantLock            lock           = new ReentrantLock();
-    Exercise2Fedulov.Storage storageWriters = new Exercise2Fedulov.Storage("WS");
+    ReentrantLock            lock = new ReentrantLock();
+    Exercise2Fedulov.Storage storageWriters;
 
     Writer(Exercise2Fedulov.Storage storageWriters) {
         this.storageWriters = storageWriters;
