@@ -23,12 +23,15 @@ public class Example3 {
                 switch (state) {
                     case RUNNING:
                         ++value;
+                        System.out.println(value);
                         break;
 
                     case PAUSE:
+                        System.out.println(State.PAUSE);
                         break;
 
                     case STOP:
+                        System.out.println(State.STOP);
                         break loop;
                 }
             }
